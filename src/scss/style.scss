@@ -1,0 +1,164 @@
+@import 'null-style.scss';
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/*Медиазапросы*/
+@mixin sm {
+  @media (max-width: map-get($breakpoints, sm)) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: map-get($breakpoints, md)) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (max-width: map-get($breakpoints, xl)) {
+    @content;
+  }
+}
+/*Медиазапросы*/
+
+body {
+  overflow-x: hidden;
+  font-family: 'Ubuntu', sans-serif;
+  margin: 27px 0 0 0;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  background: #f5f5f5;
+}
+.button {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 90px;
+  color: black;
+  &_success {
+    background: $success;
+  }
+  &_outlined {
+    border: 1px solid $border;
+  }
+}
+.header {
+  color: #585858;
+  font-size: 16px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  &__select {
+    padding: 0 20px;
+    border-left: 1px solid #c3c8cf;
+    height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+  &__chat {
+    padding: 5px 5px;
+  }
+}
+.promo {
+  &__container {
+    display: flex;
+    gap: 20px;
+  }
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border-radius: 28px;
+    background: linear-gradient(0deg, #fff 0%);
+  }
+  &__text {
+    width: 60%;
+  }
+  &__description {
+    width: 431px;
+    color: #586068;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.5px;
+  }
+
+  &__img {
+    width: 40%;
+    position: relative;
+    &-phone {
+      position: relative;
+      z-index: 2;
+    }
+    &-dollar {
+    }
+    &-qr {
+      position: absolute;
+      top: 50%;
+      left: 72%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+    }
+    &-dash {
+      position: absolute;
+      top: 1%;
+      left: 25%;
+      z-index: 1;
+    }
+    &-btc {
+      position: absolute;
+      top: 22%;
+      left: 68%;
+      z-index: 3;
+    }
+    &-red {
+      position: absolute;
+      top: 50%;
+      left: 15%;
+      z-index: 3;
+    }
+    &-black {
+      position: absolute;
+      top: 71%;
+      left: 61%;
+      z-index: 3;
+    }
+    &-token {
+      position: absolute;
+      top: 25%;
+      left: 10%;
+    }
+    &-blue {
+      position: absolute;
+      top: 12%;
+      left: 92%;
+    }
+  }
+}
