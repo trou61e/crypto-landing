@@ -92,11 +92,20 @@ body {
     gap: 20px;
   }
   &__label {
+    width: 277px;
+    height: 44px;
     display: flex;
     align-items: center;
     gap: 7px;
     border-radius: 28px;
     background: linear-gradient(0deg, #fff 0%);
+    &-text {
+      color: #00e69a;
+      font-family: Rebond Grotesque;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 30px;
+    }
   }
   &__text {
     width: 60%;
