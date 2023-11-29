@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Rebond Grotesque';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Rebond Grotesque'),
+    url('..//fonts/Rebond_Grotesque/Rebond\ Grotesque.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu'), url('../fonts/Ubuntu/Ubuntu-Bold.ttf') format('woff2'),
+    url('..//fonts/Ubuntu/Ubuntu-Bold.ttf') format('woff');
+}

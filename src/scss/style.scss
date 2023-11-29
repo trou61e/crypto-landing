@@ -1,6 +1,7 @@
 @import 'null-style.scss';
 @import 'variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import 'font-face.scss';
 
 /*Медиазапросы*/
 @mixin sm {
@@ -29,13 +30,27 @@ body {
   overflow-x: hidden;
   font-family: 'Ubuntu', sans-serif;
   margin: 27px 0 0 0;
+  background: $background;
 }
 
 .container {
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
-  background: #f5f5f5;
+}
+.title {
+  font-family: Rebond Grotesque;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 70px; /* 109.375% */
+  letter-spacing: -0.5px;
+}
+.text {
+  color: $text;
+  font-family: Ubuntu;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30px; /* 136.364% */
 }
 .button {
   display: flex;
@@ -87,13 +102,15 @@ body {
   }
 }
 .promo {
+  padding: 24px 0;
   &__container {
     display: flex;
     gap: 20px;
   }
+
   &__label {
-    width: 277px;
-    height: 44px;
+    max-width: 277px;
+    padding: 5px 14px 5px 5px;
     display: flex;
     align-items: center;
     gap: 7px;
@@ -107,16 +124,42 @@ body {
       line-height: 30px;
     }
   }
+  &__title {
+    margin-top: 16px;
+    color: $black;
+    font-family: Rebond Grotesque;
+    font-size: 78px;
+    font-weight: 700;
+    line-height: 78px; /* 100% */
+    letter-spacing: -0.5px;
+  }
+  &__tick {
+    padding-top: 25px;
+  }
   &__text {
     width: 60%;
   }
   &__description {
+    margin-bottom: 122px;
     width: 431px;
     color: #586068;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px; /* 150% */
     letter-spacing: -0.5px;
+  }
+  &__offer {
+    margin-top: 70px;
+  }
+  &__arrow {
+    padding: 12px 24px 0 0;
+  }
+  &__button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 90px;
+    color: black;
+    background: $success;
   }
 
   &__img {
@@ -126,8 +169,7 @@ body {
       position: relative;
       z-index: 2;
     }
-    &-dollar {
-    }
+
     &-qr {
       position: absolute;
       top: 50%;
@@ -150,24 +192,93 @@ body {
     &-red {
       position: absolute;
       top: 50%;
-      left: 15%;
+      left: 3%;
       z-index: 3;
     }
     &-black {
       position: absolute;
       top: 71%;
-      left: 61%;
+      left: 51%;
       z-index: 3;
     }
     &-token {
       position: absolute;
       top: 25%;
-      left: 10%;
+      left: 1%;
     }
     &-blue {
       position: absolute;
       top: 12%;
-      left: 92%;
+      left: 85%;
     }
+  }
+}
+.types {
+  padding: 80px 0 0 0;
+  background: radial-gradient(
+      46.46% 189.33% at 3.33% 5.36%,
+      #001d13 0%,
+      #06080a 100%
+    ),
+    #d9d9d9;
+  &__container {
+    display: flex;
+    gap: 10px;
+  }
+  &__content {
+    width: 50%;
+  }
+  &__title {
+    margin: 0 0 24px 80px;
+    color: $success;
+    max-width: 550px;
+  }
+  &__subtitle {
+    margin: 0 0 40px 80px;
+    color: #e0e0e0;
+  }
+  &__image {
+    margin-top: 140px;
+    width: 50%;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+.processing {
+  margin-top: 60px;
+  &__title {
+    margin-bottom: 40px;
+    color: $black;
+    text-align: center;
+  }
+  &__columns {
+    display: flex;
+    gap: 30px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 33.333%;
+    border-radius: 40px;
+    background: $white;
+  }
+  &__subtitle {
+    padding: 24px;
+    color: $black;
+    font-family: Rebond Grotesque;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 40px; /* 105.263% */
+    letter-spacing: -0.5px;
+  }
+  &__text {
+    padding: 24px;
+    flex: 1 1 auto;
+  }
+  .accept {
+    border-radius: 40px;
+    background: var(--primary, #00e69a);
   }
 }
