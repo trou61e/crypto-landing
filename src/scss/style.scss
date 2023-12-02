@@ -1,7 +1,15 @@
 @import 'null-style.scss';
 @import 'variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap');
 @import 'font-face.scss';
+@font-face {
+  font-family: 'Rebond Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Rebond'),
+    url('../fonts/RebondGrotesqueBold.woff2') format('woff2'),
+    url('../fonts/RebondGrotesqueBold.woff') format('woff');
+}
 
 /*Медиазапросы*/
 @mixin sm {
@@ -39,7 +47,7 @@ body {
   margin: 0 auto;
 }
 .title {
-  font-family: Rebond Grotesque;
+  font-family: 'Rebond Grotesque', sans-serif;
   font-size: 64px;
   font-weight: 700;
   line-height: 70px; /* 109.375% */
@@ -47,14 +55,23 @@ body {
 }
 .text {
   color: $text;
-  font-family: Ubuntu;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 30px; /* 136.364% */
 }
+.subtext {
+  color: $text;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.5px;
+}
 .button {
   display: flex;
   align-items: center;
+  font-family: 'Ubuntu', sans-serif;
   padding: 12px 24px;
   font-size: 16px;
   border-radius: 90px;
@@ -109,7 +126,7 @@ body {
   }
 
   &__label {
-    max-width: 277px;
+    max-width: 280px;
     padding: 5px 14px 5px 5px;
     display: flex;
     align-items: center;
@@ -127,11 +144,8 @@ body {
   &__title {
     margin-top: 16px;
     color: $black;
-    font-family: Rebond Grotesque;
     font-size: 78px;
-    font-weight: 700;
     line-height: 78px; /* 100% */
-    letter-spacing: -0.5px;
   }
   &__tick {
     padding-top: 25px;
@@ -149,17 +163,10 @@ body {
     letter-spacing: -0.5px;
   }
   &__offer {
+    display: flex;
+    align-items: center;
     margin-top: 70px;
-  }
-  &__arrow {
-    padding: 12px 24px 0 0;
-  }
-  &__button {
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 90px;
-    color: black;
-    background: $success;
+    gap: 15px;
   }
 
   &__img {
@@ -229,12 +236,12 @@ body {
     width: 50%;
   }
   &__title {
-    margin: 0 0 24px 80px;
+    margin: 0 0 24px 50px;
     color: $success;
     max-width: 550px;
   }
   &__subtitle {
-    margin: 0 0 40px 80px;
+    margin: 0 0 40px 50px;
     color: #e0e0e0;
   }
   &__image {
@@ -245,9 +252,8 @@ body {
     width: 100%;
   }
 }
-
 .processing {
-  margin-top: 60px;
+  padding: 60px 80px;
   &__title {
     margin-bottom: 40px;
     color: $black;
@@ -263,22 +269,100 @@ body {
     flex: 0 1 33.333%;
     border-radius: 40px;
     background: $white;
+    gap: 24px;
   }
-  &__subtitle {
-    padding: 24px;
-    color: $black;
-    font-family: Rebond Grotesque;
-    font-size: 38px;
-    font-weight: 700;
-    line-height: 40px; /* 105.263% */
-    letter-spacing: -0.5px;
+  .processing-card {
+    padding: 20px;
+    &__subtitle {
+      color: $black;
+      font-family: 'Rebond Grotesque';
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 40px; /* 105.263% */
+      letter-spacing: -0.5px;
+    }
+    &__text {
+      flex: 1 1 auto;
+    }
+    &.accept {
+      border-radius: 40px;
+      background: var(--primary, #00e69a);
+    }
   }
-  &__text {
-    padding: 24px;
-    flex: 1 1 auto;
+}
+.features {
+  background: radial-gradient(
+      46.46% 189.33% at 3.33% 5.36%,
+      #001d13 0%,
+      #06080a 100%
+    ),
+    #d9d9d9;
+  &__container {
+    display: flex;
   }
-  .accept {
-    border-radius: 40px;
-    background: var(--primary, #00e69a);
+  &__content {
+    width: 50%;
+  }
+  &__title {
+    width: 621px;
+    padding: 80px 0 24px 0;
+    color: $success;
+  }
+  &__colums {
+    margin-top: 30px;
+    max-width: 498px;
+  }
+  &__item {
+    margin-top: 10px;
+    padding: 12px 8px 8px 20px;
+    display: flex;
+    border-radius: 20px;
+    background: rgba(110, 126, 133, 0.1);
+    justify-content: space-between;
+  }
+  &__item__content {
+    display: flex;
+    flex-direction: column;
+  }
+  .item__title {
+    padding-bottom: 12px;
+    color: #e0e0e0;
+  }
+  &__image {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  &__phone {
+    position: relative;
+    z-index: 2;
+  }
+  &__icon {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  &__button {
+    position: absolute;
+    z-index: 3;
+    font-weight: 500;
+    background: $success;
+    top: 25%;
+    left: 18%;
+  }
+  &__tick {
+    position: absolute;
+    z-index: 4;
+    top: 29%;
+    left: 29%;
+  }
+  &__created {
+    position: absolute;
+    z-index: 5;
+    top: 64%;
+    left: 62%;
   }
 }
