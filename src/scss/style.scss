@@ -301,19 +301,21 @@ body {
     display: flex;
   }
   &__content {
-    width: 50%;
+    width: 60%;
   }
   &__title {
-    width: 621px;
+    max-width: 621px;
     padding: 80px 0 24px 0;
     color: $success;
   }
   &__colums {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     margin-top: 30px;
     max-width: 498px;
   }
   &__item {
-    margin-top: 10px;
     padding: 12px 8px 8px 20px;
     display: flex;
     border-radius: 20px;
@@ -330,7 +332,7 @@ body {
   }
   &__image {
     position: relative;
-    width: 50%;
+    width: 40%;
     display: flex;
     justify-content: center;
   }
@@ -345,24 +347,264 @@ body {
     transform: translate(-50%, -50%);
     z-index: 1;
   }
-  &__button {
+  &__button-container {
     position: absolute;
     z-index: 3;
+    top: 25%;
+    left: 15%;
+  }
+  &__button {
     font-weight: 500;
     background: $success;
-    top: 25%;
-    left: 18%;
   }
   &__tick {
     position: absolute;
     z-index: 4;
-    top: 29%;
-    left: 29%;
+    top: 65%;
+    left: 70%;
   }
   &__created {
     position: absolute;
     z-index: 5;
     top: 64%;
     left: 62%;
+  }
+}
+.cards {
+  padding: 82px 0 93px 0;
+  &__container {
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  &__group {
+    position: relative;
+    z-index: 2;
+    gap: 39px;
+    display: flex;
+  }
+  &__item {
+    margin-bottom: 40px;
+    width: 50%;
+    overflow: hidden;
+    border-radius: 40px;
+    background: var(--complimentary, #fff);
+    display: flex;
+    &-title {
+      padding-bottom: 24px;
+    }
+    &_img {
+      width: 100%;
+    }
+    &-column {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      &_img {
+        width: 50%;
+      }
+    }
+    &-image {
+      width: 100%;
+      max-width: 50%;
+    }
+    &_green-background {
+      background: var(--primary, #00e69a);
+    }
+    &_background {
+      z-index: 3;
+      background: url('..//assets/img/cards/fiat-background.webp'),
+        lightgray 50% / cover no-repeat;
+    }
+    &_title {
+      color: $white;
+    }
+  }
+  &__title {
+    font-size: 38px;
+    line-height: 40px;
+  }
+  &__backimage {
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 30%;
+  }
+}
+.global {
+  padding: 230px 0;
+  max-height: 724px;
+  position: relative;
+  background: radial-gradient(
+      46.46% 189.33% at 3.33% 5.36%,
+      #001d13 0%,
+      #06080a 100%
+    ),
+    #d9d9d9;
+  &__text-background {
+    color: #586068;
+    font-family: Rebond Grotesque;
+    font-size: 200.945px;
+    font-weight: 700;
+    line-height: 236.863px; /* 107.692% */
+    letter-spacing: -1.41px;
+    opacity: 0.5;
+    position: relative;
+    z-index: 1;
+  }
+  &__img {
+    position: absolute;
+    z-index: 3;
+    bottom: -75%;
+    right: 1%;
+  }
+  &__item {
+    padding: 58px 32px;
+    max-width: 356px;
+    top: 25%;
+    left: 42%;
+    border-radius: 32px;
+    background: var(--complimentary, #fff);
+    position: absolute;
+    z-index: 2;
+    transform: rotate(-8deg);
+    flex-shrink: 0;
+  }
+}
+.business {
+  padding: 90px 0 105px 0;
+  &__title {
+    max-width: 705px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__text {
+    max-width: 883px;
+    margin: 0 auto;
+    padding: 24px 0 54px 0;
+    text-align: center;
+  }
+  &__columns {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 79px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    &-img {
+      margin: 0 auto;
+    }
+    &-text {
+      color: var(--background, #000);
+      text-align: center;
+      font-size: 22px;
+      line-height: 28px; /* 127.273% */
+    }
+  }
+  &__block {
+    max-width: 1122px;
+    margin: 0 auto;
+    border-radius: 48px;
+    background: radial-gradient(
+        46.46% 189.33% at 3.33% 5.36%,
+        #001d13 0%,
+        #06080a 100%
+      ),
+      #d9d9d9;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__row {
+    max-width: 583px;
+    padding: 40px 0 40px 40px;
+    &-title {
+      color: var(--primary, #00e69a);
+      padding-bottom: 24px;
+    }
+    &-text {
+      color: #e0e0e0;
+      padding-bottom: 40px;
+    }
+  }
+  .button {
+    background: #00e69a;
+    font-weight: 500;
+  }
+  &__image {
+    position: relative;
+    padding: 40px 90px 40px 0;
+    &-woman {
+      position: relative;
+      z-index: 1;
+    }
+    &-btc {
+      position: absolute;
+      z-index: 2;
+      top: 7%;
+      right: 92%;
+    }
+    &-pay {
+      position: absolute;
+      z-index: 2;
+      bottom: 18%;
+      left: -10%;
+    }
+    &-time {
+      position: absolute;
+      z-index: 2;
+      top: 15%;
+      right: 27%;
+    }
+    &-tick {
+      position: absolute;
+      z-index: 2;
+      bottom: 15px;
+      right: 20px;
+    }
+  }
+}
+.footer {
+  padding-top: 53px;
+  background: radial-gradient(
+      46.46% 189.33% at 3.33% 5.36%,
+      #001d13 0%,
+      #06080a 100%
+    ),
+    #d9d9d9;
+  &__container {
+    max-width: 1200px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__nav {
+    display: flex;
+    gap: 32px;
+  }
+  &__link {
+    color: var(--complimentary, #fff);
+  }
+  &__text {
+    padding: 26px 0 14px 0;
+    max-width: 688px;
+    color: #586068;
+    font-size: 12px;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: -0.5px;
+  }
+  &__img {
+    display: flex;
+    gap: 5px;
+    &-visa {
+      margin-top: 4px;
+    }
+  }
+  &__subtext {
+    padding: 14px 0 24px 0;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px; /* 138.462% */
   }
 }
