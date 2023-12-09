@@ -92,30 +92,63 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    @include lg {
+      gap: 10px;
+    }
   }
   &__logo {
     display: flex;
     align-items: center;
     gap: 20px;
+    @include lg {
+      gap: 10px;
+    }
+    @include md {
+      display: none;
+    }
   }
+  &__menu {
+    display: none;
+    @include md {
+      display: block;
+      &-logo {
+        padding-left: 10px;
+      }
+    }
+  }
+
   &__select {
     padding: 0 20px;
     border-left: 1px solid #c3c8cf;
     height: 48px;
     display: flex;
     align-items: center;
+    @include lg {
+      padding: 0 10px;
+    }
   }
   &__nav {
     display: flex;
     align-items: center;
     gap: 20px;
+    @include lg {
+      gap: 10px;
+    }
   }
   &__link {
     display: flex;
     align-items: center;
+    @include md {
+      display: none;
+    }
   }
   &__chat {
     padding: 5px 5px;
+  }
+  &__button {
+    @include lg {
+      padding: 12px 12px;
+    }
   }
 }
 .promo {
@@ -253,7 +286,9 @@ body {
   }
 }
 .processing {
+  position: relative;
   padding: 60px 80px;
+
   &__title {
     margin-bottom: 40px;
     color: $black;
@@ -270,8 +305,16 @@ body {
     border-radius: 40px;
     background: $white;
     gap: 24px;
+    &-vector {
+      position: absolute;
+      z-index: 2;
+      bottom: 0%;
+      right: 0%;
+    }
   }
-  .processing-card {
+  &-card {
+    position: relative;
+    z-index: 1;
     padding: 20px;
     &__subtitle {
       color: $black;
@@ -322,6 +365,10 @@ body {
     background: rgba(110, 126, 133, 0.1);
     justify-content: space-between;
   }
+  .item__icon {
+    cursor: pointer;
+  }
+
   &__item__content {
     display: flex;
     flex-direction: column;
@@ -433,13 +480,15 @@ body {
 .global {
   padding: 230px 0;
   max-height: 724px;
-  position: relative;
   background: radial-gradient(
       46.46% 189.33% at 3.33% 5.36%,
       #001d13 0%,
       #06080a 100%
     ),
     #d9d9d9;
+  &__container {
+    position: relative;
+  }
   &__text-background {
     color: #586068;
     font-family: Rebond Grotesque;
@@ -451,22 +500,28 @@ body {
     position: relative;
     z-index: 1;
   }
+
   &__img {
+    display: flex;
+    gap: 12px;
     position: absolute;
     z-index: 3;
     bottom: -75%;
     right: 1%;
+    &-cursor {
+      cursor: pointer;
+    }
   }
   &__item {
     padding: 58px 32px;
     max-width: 356px;
-    top: 25%;
-    left: 42%;
+    top: 50%;
+    left: 50%;
     border-radius: 32px;
     background: var(--complimentary, #fff);
     position: absolute;
     z-index: 2;
-    transform: rotate(-8deg);
+    transform: rotate(-8deg) translate(-50%, -50%);
     flex-shrink: 0;
   }
 }
@@ -485,15 +540,29 @@ body {
   }
   &__columns {
     display: flex;
+    justify-content: space-between;
     gap: 24px;
     padding-bottom: 79px;
   }
   &__item {
     display: flex;
     flex-direction: column;
+    width: 215px;
+    gap: 24px;
+    align-items: center;
 
     &-img {
-      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: $white;
+      img {
+        width: 54px;
+      }
     }
     &-text {
       color: var(--background, #000);
@@ -515,7 +584,7 @@ body {
     display: flex;
     justify-content: space-between;
   }
-  &__row {
+  &__content {
     max-width: 583px;
     padding: 40px 0 40px 40px;
     &-title {
@@ -527,7 +596,7 @@ body {
       padding-bottom: 40px;
     }
   }
-  .button {
+  &__button {
     background: #00e69a;
     font-weight: 500;
   }
@@ -536,31 +605,37 @@ body {
     padding: 40px 90px 40px 0;
     &-woman {
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
     &-btc {
       position: absolute;
-      z-index: 2;
+      z-index: 3;
       top: 7%;
       right: 92%;
     }
     &-pay {
       position: absolute;
-      z-index: 2;
+      z-index: 3;
       bottom: 18%;
       left: -10%;
     }
     &-time {
       position: absolute;
-      z-index: 2;
+      z-index: 3;
       top: 15%;
       right: 27%;
     }
     &-tick {
       position: absolute;
-      z-index: 2;
+      z-index: 3;
       bottom: 15px;
       right: 20px;
+    }
+    &-vector {
+      position: absolute;
+      z-index: 1;
+      bottom: 2px;
+      right: 2px;
     }
   }
 }
@@ -584,6 +659,7 @@ body {
     gap: 32px;
   }
   &__link {
+    cursor: pointer;
     color: var(--complimentary, #fff);
   }
   &__text {
